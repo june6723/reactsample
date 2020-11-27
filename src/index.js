@@ -12,6 +12,7 @@ import NameForm from "./Components/NameForm";
 import EssayForm from "./Components/EssayForm";
 import FlavorForm from "./Components/FlavorForm";
 import Reservation from "./Components/Reservation";
+import Calculator from "./Components/Calculator";
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 const posts = [
@@ -25,7 +26,7 @@ function Element() {
     </div>
   );
 }
-ReactDOM.render(<Reservation />, document.getElementById("root"));
+ReactDOM.render(<Calculator />, document.getElementById("root"));
 
 // ReactDOM.render(
 //   <React.StrictMode>
