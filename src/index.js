@@ -13,12 +13,14 @@ import EssayForm from "./Components/EssayForm";
 import FlavorForm from "./Components/FlavorForm";
 import Reservation from "./Components/Reservation";
 import Calculator from "./Components/Calculator";
+import SignUpDialog from "./Components/Dialog";
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 const posts = [
   { id: 1, title: "Hello World", content: "Welcome to learning React!" },
   { id: 2, title: "Installation", content: "You can install React from npm." },
 ];
+
 function Element() {
   return (
     <div>
@@ -26,7 +28,7 @@ function Element() {
     </div>
   );
 }
-ReactDOM.render(<Calculator />, document.getElementById("root"));
+ReactDOM.render(<SignUpDialog />, document.getElementById("root"));
 
 // ReactDOM.render(
 //   <React.StrictMode>
