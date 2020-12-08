@@ -1,49 +1,29 @@
-class ObjectUtilities {
+console.clear();
+class ArrayUtilities {
   /* Your magic here */
-  static mergeObjects = (objA, objB) => {
-    let newObj = { ...objA, ...objB };
-    return newObj;
-  };
-
-  static removePassword = (obj) => {
-    let newObj = { ...obj };
-    delete newObj.password;
-    return newObj;
-  };
-
-  static freezeObj = (obj) => {
-    let newObj = { ...obj };
-    Object.freeze(newObj);
-    return newObj;
-  };
-
-  static getOnlyValues = (obj) => {
-    return Object.values(obj);
-  };
-  static getOnlyProperties = (obj) => {
-    return Object.keys(obj);
+  static addZeros = (numbers) => numbers.map((num) => num * 10);
+  static moreThanFifty = (numbers) => numbers.filter((num) => num > 50);
+  static removeFirst = (numbers) => numbers.filter((num, index) => index > 0);
+  static sumAll = (numbers) => numbers.reduce((prev, curr) => prev + curr);
+  static divide = (number) => {
+    let str = number.toString();
+    return str.split("");
   };
 }
 
-const objA = {
-  name: "Nicolas",
-  favFood: "Kimchi",
-};
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const objB = {
-  password: "12345",
-};
+const addZeros = ArrayUtilities.addZeros(numbers);
+console.log(addZeros);
 
-const user = ObjectUtilities.mergeObjects(objA, objB);
-console.log(user);
+const moreThanFifty = ArrayUtilities.moreThanFifty(addZeros);
+console.log(moreThanFifty);
 
-const cleanUser = ObjectUtilities.removePassword(user);
-console.log(cleanUser);
+const noFirst = ArrayUtilities.removeFirst(moreThanFifty);
+console.log(noFirst);
 
-const frozenUser = ObjectUtilities.freezeObj(cleanUser);
+const sumAll = ArrayUtilities.sumAll(noFirst);
+console.log(sumAll);
 
-const onlyValues = ObjectUtilities.getOnlyValues(frozenUser);
-console.log(onlyValues);
-
-const onlyProperties = ObjectUtilities.getOnlyProperties(frozenUser);
-console.log(onlyProperties);
+const divided = ArrayUtilities.divide(sumAll);
+console.log(divided);
