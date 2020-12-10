@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Example from "./Hooks/Example";
-import Example2 from "./Hooks/Example2";
-import FriendStatus from "./Hooks/FriendStatus";
+import App from "./App";
 
-ReactDOM.render(<FriendStatus />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // ReactDOM.render(
 //   <React.StrictMode>

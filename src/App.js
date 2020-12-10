@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import Router from "./Components/Router";
+import GlobalStyles from "./Components/GlobalStyles";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Router />
+      <GlobalStyles />
+    </>
+  );
 }
 
 export default App;
