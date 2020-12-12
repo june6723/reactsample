@@ -8,6 +8,7 @@ const Nav = styled.header`
   top: 0;
   background: #f0f0f0;
   width: 100%;
+  padding-left: 20px;
 `;
 const Title = styled.span`
   font-size: 36px;
