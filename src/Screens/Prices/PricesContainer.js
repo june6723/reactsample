@@ -4,8 +4,7 @@ import { tickersAPI } from "../../API";
 
 export default class extends React.Component {
   state = {
-    tickers: null,
-    error: null,
+    tickers: [],
     loading: true,
   };
 
@@ -13,18 +12,14 @@ export default class extends React.Component {
     try {
       const { data: tickers } = await tickersAPI.tickers();
       this.setState({ tickers });
-    } catch {
-      this.setState({ error: "Can't load information" });
+    } catch (e) {
+      console.log(e);
     } finally {
       this.setState({ loading: false });
     }
   }
 
   render() {
-    const { tickers, error, loading } = this.state;
-    console.log(this.state);
-    return (
-      <PricesPresenter tickers={tickers} error={error} loading={loading} />
-    );
+    return <PricesPresenter {...this.state} />;
   }
 }

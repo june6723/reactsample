@@ -1,40 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Loader from "../../Components/Loader";
-import styled from "styled-components";
+import Price from "../../Components/Price";
 
-const Container = styled.div`
-  padding-left: 20px;
-`;
-
-const List = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Item = styled.div`
-  margin-bottom: 5px;
-`;
-const PricesPresenter = ({ tickers, error, loading }) =>
+const PricesPresenter = ({ tickers, loading }) =>
   loading ? (
     <Loader />
   ) : (
-    <Container>
-      {tickers && tickers.length > 0 && (
-        <List>
-          {tickers.map((ticker) => (
-            <Item key={ticker.id}>
-              {ticker.name} / {ticker.symbol} : ${ticker.quotes.USD.price}
-            </Item>
-          ))}
-        </List>
-      )}
-    </Container>
+    tickers.map((ticker) => <Price key={ticker.id} {...ticker} />)
   );
 
 PricesPresenter.propTypes = {
-  tickers: PropTypes.array,
-  error: PropTypes.string,
   loading: PropTypes.bool.isRequired,
+  tickers: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      symbol: PropTypes.string.isRequired,
+      quotes: PropTypes.shape({
+        USD: PropTypes.shape({
+          price: PropTypes.number.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired
+  ).isRequired,
 };
 
 export default PricesPresenter;

@@ -18,9 +18,9 @@ Price.propTypes = {
   symbol: PropTypes.string.isRequired,
   quotes: PropTypes.shape({
     USD: PropTypes.shape({
-      price: PropTypes.number.isRequired
-    }).isRequired
-  }).isRequired
+      price: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Price;
