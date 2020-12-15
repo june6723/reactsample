@@ -2,7 +2,7 @@ import React from "react";
 import CoinsPresenter from "./CoinsPresenter";
 import { coinsAPI } from "../../API";
 
-export default class extends React.Component {
+class CoinsContainer extends React.Component {
   state = {
     coins: [],
     loading: true,
@@ -22,3 +22,4 @@ export default class extends React.Component {
     return <CoinsPresenter {...this.state} />;
   }
 }
+export default CoinsContainer;

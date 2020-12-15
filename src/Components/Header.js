@@ -7,8 +7,8 @@ const Nav = styled.header`
   left: 0;
   top: 0;
   background: #f0f0f0;
-  width: 100%;
   padding-left: 20px;
+  width: 100%;
 `;
 const Title = styled.span`
   font-size: 36px;
@@ -42,7 +42,7 @@ const Header = ({ location: { pathname } }) => (
       <Item current={pathname === "/exchanges"}>
         <PageLink to="/exchanges">Exchanges</PageLink>
       </Item>
-      <Item current={pathname === "/coins"}>
+      <Item current={pathname.includes("/coins")}>
         <PageLink to="/coins">Coins</PageLink>
       </Item>
     </List>
