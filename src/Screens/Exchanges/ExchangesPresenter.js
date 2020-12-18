@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Loader from "../../Components/Loader";
 import Exchange from "../../Components/Exchange";
 
-const ExchangesPresenter = ({ exchanges, loading }) =>
+const ExchangesPresenter = ({ loading, exchanges }) =>
   loading ? (
     <Loader />
   ) : (
@@ -18,10 +18,10 @@ ExchangesPresenter.propTypes = {
       name: PropTypes.string.isRequired,
       description: PropTypes.string,
       links: PropTypes.shape({
-        website: PropTypes.arrayOf(PropTypes.string.isRequired),
-      }),
+        website: PropTypes.arrayOf(PropTypes.string.isRequired)
+      })
     }).isRequired
-  ).isRequired,
+  ).isRequired
 };
 
 export default ExchangesPresenter;

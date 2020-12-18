@@ -1,22 +1,23 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-const GlobalStyles = createGlobalStyle`
+const globalStyles = createGlobalStyle`
     ${reset};
     a{
         text-decoration:none;
         color:inherit;
     }
     *{
-        box-sizing : border-box;
+        box-sizing:border-box;
     }
-    body {
+    body{
         font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size:14px;
-        padding-top:100px;
-        padding-left: 20px;
+        padding:30px;
     }
-    
+    h1 {
+      font-size:32px;
+      margin-bottom:30px;
+    }
 `;
 
-export default GlobalStyles;
+export default globalStyles;

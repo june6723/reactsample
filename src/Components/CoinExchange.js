@@ -1,41 +1,34 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
-const Container = styled.div`
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-`;
-const Title = styled.span`
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 3px;
-`;
-const PayCurrency = styled.span``;
-const Currency = styled.span`
-  margin-right: 3px;
+const Container = styled("div")`
+  margin-bottom: 20px;
 `;
 
-const CoinExchange = ({ id, fiats }) => (
+const Name = styled("span")`
+  font-weight: 600;
+`;
+
+const Fiats = styled("div")``;
+
+const CoinExchange = ({ name, adjusted_volume_24h_share, fiats, id }) => (
   <Container>
-    <Title>{id}</Title>
-    <PayCurrency>
-      Pay On{" "}
-      {fiats.map((fiat) => (
-        <Currency key={fiat.symbol}>{fiat.symbol}</Currency>
-      ))}
-    </PayCurrency>
+    <Name>{name}</Name>
+    <Fiats>Pay On {fiats.map(fiat => `${fiat.symbol} `)}</Fiats>
   </Container>
 );
 
 CoinExchange.propTypes = {
   id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  adjusted_volume_24h_share: PropTypes.number,
   fiats: PropTypes.arrayOf(
     PropTypes.shape({
-      symbol: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      symbol: PropTypes.string
     })
-  ),
+  )
 };
 
 export default CoinExchange;

@@ -1,25 +1,28 @@
 import React from "react";
 import CoinsPresenter from "./CoinsPresenter";
-import { coinsAPI } from "../../API";
+import { getCoins } from "../../api";
 
-class CoinsContainer extends React.Component {
+export default class extends React.Component {
   state = {
-    coins: [],
     loading: true,
+    coins: []
   };
-  async componentDidMount() {
+  getCoins = async () => {
     try {
-      const { data: coins } = await coinsAPI.coins();
-      this.setState({ coins });
+      const { data: coins } = await getCoins();
+      this.setState({
+        coins
+      });
     } catch (e) {
       console.log(e);
     } finally {
       this.setState({ loading: false });
     }
+  };
+  componentDidMount() {
+    this.getCoins();
   }
-
   render() {
     return <CoinsPresenter {...this.state} />;
   }
 }
-export default CoinsContainer;

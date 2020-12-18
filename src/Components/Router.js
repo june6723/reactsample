@@ -1,20 +1,19 @@
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import React from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
 import Header from "./Header";
 import Coins from "../Screens/Coins";
 import Exchanges from "../Screens/Exchanges";
 import Prices from "../Screens/Prices";
-import CoinDetail from "../Screens/CoinDetail";
+import Coin from "../Screens/Coin";
 
-export default () => (
-  <BrowserRouter>
-    <Header />
-    <Switch>
+export default () => {
+  return (
+    <Router>
+      <Header />
       <Route path="/" exact component={Prices} />
       <Route path="/exchanges" component={Exchanges} />
       <Route path="/coins" exact component={Coins} />
-      <Route path="/coins/:id" component={CoinDetail} />
-      <Redirect from="*" to="/" />
-    </Switch>
-  </BrowserRouter>
-);
+      <Route path="/coins/:id" component={Coin} />
+    </Router>
+  );
+};

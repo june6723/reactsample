@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled("div")`
   margin-bottom: 10px;
 `;
 
@@ -18,9 +18,9 @@ Price.propTypes = {
   symbol: PropTypes.string.isRequired,
   quotes: PropTypes.shape({
     USD: PropTypes.shape({
-      price: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
+      price: PropTypes.number.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 export default Price;

@@ -1,24 +1,27 @@
 import React from "react";
 import PricesPresenter from "./PricesPresenter";
-import { tickersAPI } from "../../API";
+import { getPrices } from "../../api";
 
 export default class extends React.Component {
   state = {
-    tickers: [],
     loading: true,
+    prices: []
   };
-
-  async componentDidMount() {
+  componentDidMount() {
+    this.getPrices();
+  }
+  getPrices = async () => {
     try {
-      const { data: tickers } = await tickersAPI.tickers();
-      this.setState({ tickers });
+      const { data: prices } = await getPrices();
+      this.setState({
+        prices
+      });
     } catch (e) {
       console.log(e);
     } finally {
       this.setState({ loading: false });
     }
-  }
-
+  };
   render() {
     return <PricesPresenter {...this.state} />;
   }

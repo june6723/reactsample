@@ -1,6 +1,6 @@
 import React from "react";
-import ExchangesPresenter from "./ExchangesPresenter";
-import { getExchanges } from "../../api";
+import CoinExchangesPresenter from "./CoinExchangesPresenter";
+import { getCoinExchanges } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -8,8 +8,13 @@ export default class extends React.Component {
     exchanges: []
   };
   getExchanges = async () => {
+    const {
+      match: {
+        params: { id }
+      }
+    } = this.props;
     try {
-      const { data: exchanges } = await getExchanges();
+      const { data: exchanges } = await getCoinExchanges(id);
       this.setState({ exchanges });
     } catch (e) {
       console.log(e);
@@ -21,6 +26,6 @@ export default class extends React.Component {
     this.getExchanges();
   }
   render() {
-    return <ExchangesPresenter {...this.state} />;
+    return <CoinExchangesPresenter {...this.state} />;
   }
 }
