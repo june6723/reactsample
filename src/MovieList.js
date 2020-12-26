@@ -78,6 +78,7 @@ const MovieList = () => {
     <>
       <h1>Infinte Movies / Page {page - 1}</h1>
       <MovieArray movies={movies}></MovieArray>
+      {fetching ? <div>Loading...</div> : <div></div>}
     </>
   );
 };
