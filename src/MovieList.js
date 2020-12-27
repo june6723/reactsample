@@ -3,6 +3,7 @@ import styled from "styled-components";
 import movieAPI from "./movieAPI";
 
 const MovieItem = styled.h3``;
+const Loader = styled.div``;
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -78,7 +79,7 @@ const MovieList = () => {
     <>
       <h1>Infinte Movies / Page {page - 1}</h1>
       <MovieArray movies={movies}></MovieArray>
-      {fetching ? <div>Loading...</div> : <div></div>}
+      {fetching ? <Loader>Loading...⏰</Loader> : <div></div>}
     </>
   );
 };
