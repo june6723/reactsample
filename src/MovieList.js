@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import movieAPI from "./movieAPI";
 
-const MovieItem = styled.h3``;
+const MovieItem = styled.h3`
+  color: violet;
+`;
 const Loader = styled.div``;
 
 const MovieList = () => {
